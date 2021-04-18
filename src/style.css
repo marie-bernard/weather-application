@@ -1,0 +1,117 @@
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+h1,
+h2,
+h3 {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  color: #413c69;
+}
+h1 {
+  margin: 30px auto;
+  font-size: 30px;
+}
+h2 {
+  margin: 40px auto;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 40px;
+  font-weight: 800;
+  color: #507ab1;
+}
+h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+p {
+  margin-bottom: 0;
+  font-family: "Roboto", sans-serif;
+  color: #908f94;
+}
+.container {
+  padding: 70px 50px;
+  max-width: 900px;
+}
+.city-selector {
+  margin: 50px auto;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+.label {
+  font-size: 16px;
+  color: #908f94;
+  margin-right: 10px;
+}
+.city-field {
+  font-size: 14px;
+  color: #413c69;
+  padding: 5px 40px 5px 8px;
+  margin: 5px 3px;
+  border: solid 1px #b3b1b9;
+}
+.city-field::placeholder {
+  font-size: 13px;
+  font-style: italic;
+  color: #b3b1b9;
+}
+.submit-button {
+  font-size: 14px;
+  margin: 5px 0;
+  padding: 6px 15px;
+  background-color: #413c69;
+  color: #ffffff;
+  border: none;
+  transition: all 150ms ease-in-out;
+}
+.submit-button:hover {
+  cursor: pointer;
+  background-color: #413c69b4;
+}
+
+.current-location-selector {
+  font-size: 16px;
+  color: #908f94;
+  margin: 0 15px;
+}
+.card {
+  display: block;
+  margin: 0 auto 40px;
+}
+.card-body {
+  text-align: center;
+}
+.today-date {
+  font-size: 14px;
+}
+.today-emoji {
+  font-size: 40px;
+}
+#today-temperature {
+  font-size: 25px;
+  font-weight: 800;
+  color: #413c69;
+}
+#celsius,
+#farenheit {
+  font-size: 14px;
+  font-weight: 400;
+  color: #413c69;
+}
+
+.today-weather {
+  font-size: 18px;
+  line-height: 1;
+  margin-bottom: 15px;
+  color: #413c69;
+}
+.today-details {
+  font-size: 14px;
+}
+.next-days {
+  font-size: 14px;
+  font-weight: 500;
+}
+.next-days-temperature {
+  font-size: 13px;
+}

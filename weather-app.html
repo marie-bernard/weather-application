@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>What is the weather like in...</h1>
+      <div class="city-selector">
+          <form id="city-search-form">
+            <label class="label" for="city">Choose a city:</label>
+            <input
+              class="city-field"
+              type="text"
+              id="city-input"
+              placeholder="Enter a city name"
+              autocomplete="off"
+              autofocus="autofocus"
+            />
+            <input class="submit-button" type="submit" value="OK" />
+          
+            <span class="current-location-selector">or</span><button class="submit-button" id="current-location-button">Current location</button>
+       
+          </form>
+        
+        </span>
+      </div>
+      <hr />
+      <h2 id="city"></h2>
+      <div class="row">
+        <div class="col-md-5">
+          <h3><strong>Now</strong></h3>
+          <div class="card" style="width: 85%">
+            <div class="card-body">
+              <p class="today-date">
+                <span id="current-date">Monday March 15th</span>
+                <br />
+                <span id="current-time">3:18 PM</span>
+              </p>
+              <p class="today-emoji">☀️</p>
+              <p>
+                <span id="today-temperature"><strong>...</strong></span>
+                <a href="#" id="celsius">°C</a> |
+                <a href="#" id="farenheit">°F</a>
+              </p>
+              <p class="today-weather" id="today-weather"></p>
+              <p class="today-details">
+                Humidity: <span id="today-humidity">...</span>%
+                <br />
+                Wind: <span id="today-wind">...</span> km/h
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <h3>For the next days</h3>
+          <div class="card" style="width: 85%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="next-days-emoji">🌤</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="next-days">Tuesday</p>
+                  </div>
+                  <div class="col-7">
+                    <p class="next-days-temperature">
+                      | Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="next-days-emoji">🌤</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="next-days">Wednesday</p>
+                  </div>
+                  <div class="col-7">
+                    <p class="next-days-temperature">
+                      | Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="next-days-emoji">🌤</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="next-days">Thursday</p>
+                  </div>
+                  <div class="col-7">
+                    <p class="next-days-temperature">
+                      | Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="next-days-emoji">🌤</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="next-days">Friday</p>
+                  </div>
+                  <div class="col-7">
+                    <p class="next-days-temperature">
+                      | Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="next-days-emoji">🌤</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="next-days">Saturday</p>
+                  </div>
+                  <div class="col-7">
+                    <p class="next-days-temperature">
+                      | Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="next-days-emoji">🌤</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="next-days">Sunday</p>
+                  </div>
+                  <div class="col-7">
+                    <p class="next-days-temperature">
+                      | Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
+</html>
