@@ -43,6 +43,7 @@ function displayCurrentTime() {
 
 function displayCityWeather(response) {
   let city = document.querySelector("#city");
+  let todayIcon = document.querySelector("#today-icon");
   let todayTemperature = document.querySelector("#today-temperature");
   let celsius = document.querySelector("#celsius");
   let farenheit = document.querySelector("#farenheit");
@@ -50,6 +51,11 @@ function displayCityWeather(response) {
   let todayHumidity = document.querySelector("#today-humidity");
   let todayWind = document.querySelector("#today-wind");
   let celsiusTemperature = Math.round(response.data.main.temp);
+  let todayIconCode = response.data.weather[0].icon;
+  todayIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${todayIconCode}@2x.png`
+  );
   city.innerHTML = response.data.name;
   todayTemperature.innerHTML = `${celsiusTemperature}`;
   todayWeather.innerHTML = response.data.weather[0].main;

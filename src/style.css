@@ -10,14 +10,13 @@ h3 {
 }
 h1 {
   margin: 30px auto;
-  font-size: 30px;
+  font-size: 22px;
 }
 h2 {
   margin: 40px auto;
   text-transform: uppercase;
-  text-decoration: underline;
-  font-size: 40px;
-  font-weight: 800;
+  font-size: 50px;
+  font-weight: 500;
   color: #507ab1;
 }
 h3 {
@@ -84,8 +83,8 @@ p {
 .today-date {
   font-size: 14px;
 }
-.today-emoji {
-  font-size: 40px;
+.today-icon {
+  height: 75px;
 }
 #today-temperature {
   font-size: 25px;
