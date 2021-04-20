@@ -67,11 +67,15 @@ function displayCityWeather(response) {
 
   function displayCelsiusTemperature(event) {
     event.preventDefault();
+    farenheit.classList.remove("active");
+    celsius.classList.add("active");
     todayTemperature.innerHTML = `${celsiusTemperature}`;
   }
 
   function displayFarenheitTemperature(event) {
     event.preventDefault();
+    celsius.classList.remove("active");
+    farenheit.classList.add("active");
     let farenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
     todayTemperature.innerHTML = `${farenheitTemperature}`;
   }

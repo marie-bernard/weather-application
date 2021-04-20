@@ -30,7 +30,6 @@
               id="city-input"
               placeholder="Enter a city name"
               autocomplete="off"
-              autofocus="autofocus"
             />
             <input class="submit-button" type="submit" value="OK" />
           
@@ -50,14 +49,14 @@
             <div class="card-body">
               <p class="today-date">
                 <span id="current-date">Monday March 15th</span>
-                <br />
+                -
                 <span id="current-time">3:18 PM</span>
               </p>
               <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Today weather icon" class="today-icon" id="today-icon" />
               <p>
                 <span id="today-temperature"><strong>...</strong></span>
-                <a href="#" id="celsius">°C</a> |
-                <a href="#" id="farenheit">°F</a>
+                <a href="#" class="active" id="celsius">°C</a> |
+                <a href="#" class="link" id="farenheit">°F</a>
               </p>
               <p class="today-weather" id="today-weather"></p>
               <p class="today-details">
@@ -165,9 +164,10 @@
             </ul>
           </div>
         </div>
-        <p class="mention"><a href="https://github.com/marie-bernard/weather-application" target="_blank">Open-source code</a> by Marie Bernard</p>
       </div>
     </div>
+            <p class="mention"><a href="https://github.com/marie-bernard/weather-application" target="_blank" class="link">Open-source code</a> by Marie Bernard</p>
+
     <script src="src/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
