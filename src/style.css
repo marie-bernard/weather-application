@@ -91,13 +91,14 @@ a:hover {
 }
 .card-body {
   text-align: center;
+  padding: 19px;
 }
 .today-date {
   font-size: 14px;
   font-weight: 500;
 }
 .today-icon {
-  height: 75px;
+  height: 90px;
 }
 #today-temperature {
   font-size: 25px;
@@ -128,12 +129,22 @@ a:hover {
 .today-details {
   font-size: 14px;
 }
+.list-group-item {
+  padding: 7px 16px;
+}
+.next-days-icon {
+  height: 25px;
+  margin: 0 auto;
+}
 .next-days {
   font-size: 14px;
   font-weight: 500;
+  line-height: 2;
+  padding-left: 10px;
 }
 .next-days-temperature {
   font-size: 13px;
+  line-height: 2.3;
 }
 .mention {
   margin: 30px auto;
