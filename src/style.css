@@ -88,6 +88,7 @@ a:hover {
 .card {
   display: block;
   margin: 0 auto 40px;
+  width: 85%;
 }
 .card-body {
   text-align: center;

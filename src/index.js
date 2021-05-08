@@ -41,6 +41,47 @@ function displayCurrentTime() {
   return `${hour}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `
+  <div class="col-md-7">
+          <h3>In the next days</h3>
+          <div class="card">
+            <ul class="list-group list-group-flush">
+  `;
+  let nextDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  nextDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1">
+                    <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Next days weather icon" class="next-days-icon" />
+                  </div>
+                  <div class="col-auto col-sm-4">
+                    <p class="next-days">${day}</p>
+                  </div>
+                  <div class="col-sm-7">
+                    <p class="next-days-temperature">
+                      Min. 6°C - Max. <strong>13°C</strong>
+                    </p>
+                  </div>
+                </div>
+              </li>
+  `;
+  });
+  forecastHTML =
+    forecastHTML +
+    `
+            </ul>
+          </div>
+        </div>
+  `;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayCityWeather(response) {
   let city = document.querySelector("#city");
   let todayIcon = document.querySelector("#today-icon");
@@ -115,3 +156,5 @@ currentDate.innerHTML = displayCurrentDate(now);
 
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = displayCurrentTime(now);
+
+displayForecast();
