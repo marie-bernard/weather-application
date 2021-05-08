@@ -170,10 +170,10 @@ function searchCity(event) {
   let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=${units}&appid=${apiKey}`;
   axios
     .get(apiCityUrl)
-    .then(displayCityWeather)
     .catch((error) => {
       alert("This city does not exist. Please try to enter another city name.");
-    });
+    })
+    .then(displayCityWeather);
 }
 
 function retrievePosition(position) {
