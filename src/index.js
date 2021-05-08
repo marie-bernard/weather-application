@@ -1,5 +1,5 @@
-function displayCurrentDate() {
-  let date = now.getDate();
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
   let days = [
     "Sunday",
     "Monday",
@@ -9,39 +9,13 @@ function displayCurrentDate() {
     "Friday",
     "Saturday",
   ];
-  let day = days[now.getDay()];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[now.getMonth()];
-
-  return `${day} ${month} ${date}`;
+  let day = days[date.getDay()];
+  return day;
 }
 
-function displayCurrentTime() {
-  let hour = now.getHours();
-  let minutes = now.getMinutes();
-  if (hour < 10) {
-    hour = `0${now.getHours()}`;
-  }
-  if (minutes < 10) {
-    minutes = `0${now.getMinutes()}`;
-  }
-  return `${hour}:${minutes}`;
-}
-
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `
   <div class="col-md-7">
@@ -49,27 +23,35 @@ function displayForecast() {
           <div class="card">
             <ul class="list-group list-group-flush">
   `;
-  let nextDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  nextDays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.shift();
+  forecast.forEach(function (nextDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
             <li class="list-group-item">
                 <div class="row">
                   <div class="col-1">
-                    <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Next days weather icon" class="next-days-icon" />
+                    <img src="https://openweathermap.org/img/wn/${
+                      nextDay.weather[0].icon
+                    }@2x.png" alt="Next days weather icon" class="next-days-icon" />
                   </div>
                   <div class="col-auto col-sm-4">
-                    <p class="next-days">${day}</p>
+                    <p class="next-days">${formatDay(nextDay.dt)}</p>
                   </div>
                   <div class="col-sm-7">
                     <p class="next-days-temperature">
-                      Min. 6°C - Max. <strong>13°C</strong>
+                      Min. ${Math.round(
+                        nextDay.temp.min
+                      )}°C - Max. <strong>${Math.round(
+          nextDay.temp.max
+        )}°C</strong>
                     </p>
                   </div>
                 </div>
               </li>
   `;
+    }
   });
   forecastHTML =
     forecastHTML +
@@ -82,7 +64,15 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `16073f8f6b40b775cda17f1c04c67e04`;
+  let apiForecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely,current,alert&units=metric&appid=${apiKey}`;
+  axios.get(apiForecastURL).then(displayForecast);
+}
+
 function displayCityWeather(response) {
+  console.log(response.data);
   let city = document.querySelector("#city");
   let todayIcon = document.querySelector("#today-icon");
   let todayTemperature = document.querySelector("#today-temperature");
@@ -120,6 +110,8 @@ function displayCityWeather(response) {
     let farenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
     todayTemperature.innerHTML = `${farenheitTemperature}`;
   }
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(event) {
@@ -144,11 +136,48 @@ function displayCurrentLocationWeather() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
-let searchCityForm = document.querySelector("#city-search-form");
-searchCityForm.addEventListener("submit", searchCity);
+function displayCurrentTime() {
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  if (hour < 10) {
+    hour = `0${now.getHours()}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${now.getMinutes()}`;
+  }
+  return `${hour}:${minutes}`;
+}
 
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", displayCurrentLocationWeather);
+function displayCurrentDate() {
+  let date = now.getDate();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+
+  return `${day} ${month} ${date}`;
+}
 
 let now = new Date();
 let currentDate = document.querySelector("#current-date");
@@ -157,4 +186,8 @@ currentDate.innerHTML = displayCurrentDate(now);
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = displayCurrentTime(now);
 
-displayForecast();
+let searchCityForm = document.querySelector("#city-search-form");
+searchCityForm.addEventListener("submit", searchCity);
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", displayCurrentLocationWeather);
