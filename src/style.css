@@ -43,6 +43,7 @@ a:hover {
   margin-top: 30px;
   max-width: 900px;
   background-color: #ffffff;
+  box-shadow: 5px 5px 20px #908f9427;
 }
 .city-selector {
   margin: 50px auto;
@@ -71,6 +72,7 @@ a:hover {
   margin: 5px 0;
   padding: 6px 15px;
   background-color: #413c69;
+  box-shadow: 2px 2px 8px #908f9494;
   color: #ffffff;
   border: none;
   transition: all 150ms ease-in-out;
@@ -89,10 +91,12 @@ a:hover {
   display: block;
   margin: 0 auto 40px;
   width: 85%;
+  border: none;
+  box-shadow: 2px 2px 20px #908f9444;
 }
 .card-body {
   text-align: center;
-  padding: 19px;
+  padding: 17px;
 }
 .today-date {
   font-size: 14px;
@@ -101,24 +105,15 @@ a:hover {
 .today-icon {
   height: 90px;
 }
-#today-temperature {
+.today-temperature {
   font-size: 25px;
   font-weight: 800;
   color: #413c69;
 }
-#celsius,
-#farenheit {
-  font-size: 14px;
-  font-weight: 400;
-}
 
-.active {
+.celsius {
+  font-size: 14px;
   color: #413c69;
-  text-decoration: none;
-}
-.active:hover {
-  color: #413c69;
-  cursor: default;
 }
 
 .today-weather {
@@ -131,7 +126,7 @@ a:hover {
   font-size: 14px;
 }
 .list-group-item {
-  padding: 7px 16px;
+  padding: 6px 16px;
 }
 .next-days-icon {
   height: 30px;
