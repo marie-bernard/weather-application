@@ -120,7 +120,12 @@ function searchCity(event) {
   let apiKey = "16073f8f6b40b775cda17f1c04c67e04";
   let units = "metric";
   let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=${units}&appid=${apiKey}`;
-  axios.get(apiCityUrl).then(displayCityWeather);
+  axios
+    .get(apiCityUrl)
+    .then(displayCityWeather)
+    .catch((error) => {
+      alert("This city does not exist. Please try to enter another city name.");
+    });
 }
 
 function retrievePosition(position) {
